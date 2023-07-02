@@ -8,6 +8,7 @@ public abstract class PickUp : MonoBehaviour
 {
     private Collider myCollider;
     private AudioSource myAudioSource;
+    [SerializeField] private int timeToDisable;
 
     private void Awake()
     {
@@ -28,6 +29,13 @@ public abstract class PickUp : MonoBehaviour
             }
             myCollider.enabled = false;
             OnPickUp(player);
+            StartCoroutine(DisablePickUp());
         }
+    }
+
+    public IEnumerator DisablePickUp()
+    {
+        yield return new WaitForSeconds(timeToDisable);
+        gameObject.SetActive(false);
     }
 }

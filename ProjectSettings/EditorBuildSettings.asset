@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Candidato/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Candidato/Scenes/MenuScene.unity
+    guid: da19dca6e448bd8409750a9d9b081a84
+  - enabled: 1
+    path: Assets/Candidato/Scenes/GameScene.unity
+    guid: 5e95f664a130e4546983966afa1ffda9
   m_configObjects: {}
