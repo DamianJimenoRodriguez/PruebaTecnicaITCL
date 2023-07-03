@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
 
 public class Orbiting : MonoBehaviour
@@ -32,14 +31,6 @@ public class Orbiting : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKey(KeyCode.Z))
-        //{
-        //    Zoom(1);
-        //}
-        //else if (Input.GetKey(KeyCode.X))
-        //{
-        //    Zoom(-1);
-        //}
         Zoom(input.Zoom);
         Orbit(input.Horizontal, input.Vertical);
     }
