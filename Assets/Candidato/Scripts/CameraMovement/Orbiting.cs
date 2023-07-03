@@ -7,42 +7,41 @@ using UnityEngine;
 
 public class Orbiting : MonoBehaviour
 {
-    public Transform Pivot;
+    [SerializeField] private Transform Pivot;
 
     private Quaternion DestRot = Quaternion.identity;
 
-    public float PivotDistance = 5f;
-    public float MaxPivotDistance = 1f;
-    public float MinPivotDistance = 10f;
-
-    public float zoomSpeed = 2;
-
-    public float RotSpeed = 10f;
+    [SerializeField] private float PivotDistance = 5f;
+    [SerializeField] private float MaxPivotDistance = 1f;
+    [SerializeField] private float MinPivotDistance = 10f;
+    [SerializeField] private float zoomSpeed = 2;
+    [SerializeField] private float RotSpeed = 10f;
     private float RotX = 0f;
     private float RotY = 0f;
 
     [SerializeField] private float RotXMax = 14;
     [SerializeField] private float RotXMin = -14;
+    private CameraInput input;
 
     private void Awake()
     {
+        input = GetComponent<CameraInput>();
         RotX = transform.rotation.eulerAngles.x;
         RotY = transform.rotation.eulerAngles.y;
     }
 
     private void Update()
     {
-        float Horz = Input.GetAxis("Horizontal");
-        float Vert = Input.GetAxis("Vertical");
-        if (Input.GetKey(KeyCode.Z))
-        {
-            Zoom(1);
-        }
-        else if (Input.GetKey(KeyCode.X))
-        {
-            Zoom(-1);
-        }
-        Orbit(Horz, Vert);
+        //if (Input.GetKey(KeyCode.Z))
+        //{
+        //    Zoom(1);
+        //}
+        //else if (Input.GetKey(KeyCode.X))
+        //{
+        //    Zoom(-1);
+        //}
+        Zoom(input.Zoom);
+        Orbit(input.Horizontal, input.Vertical);
     }
 
     private void Zoom(float zoomValue)
