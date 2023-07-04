@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Candidato/Scenes/MenuScene.unity
     guid: da19dca6e448bd8409750a9d9b081a84
   - enabled: 1
-    path: Assets/Candidato/Scenes/GameScene.unity
+    path: Assets/Candidato/Scenes/Level 1.unity
     guid: 5e95f664a130e4546983966afa1ffda9
+  - enabled: 1
+    path: Assets/Candidato/Scenes/Level 2.unity
+    guid: 6694bc2f8611bf14e8038b4fc28c8dee
+  - enabled: 1
+    path: Assets/Candidato/Scenes/Level 3.unity
+    guid: 6229691e9c7ed3045a392044ef809952
   m_configObjects: {}

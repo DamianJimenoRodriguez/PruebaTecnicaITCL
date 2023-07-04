@@ -15,6 +15,21 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
     }
 
+    public void LoadNextLevel()
+    {
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        int nextLevel = currentLevel + 1;
+
+        nextLevel = nextLevel >= SceneManager.sceneCountInBuildSettings ? 0 : nextLevel;
+        SceneManager.LoadScene(nextLevel);
+    }
+
+    public void RestartLevel()
+    {
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentLevel);
+    }
+
     public void QuitGame()
     {
         Application.Quit();

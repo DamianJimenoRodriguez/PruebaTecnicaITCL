@@ -13,6 +13,9 @@ public class PlayerInput : MonoBehaviour
     public float minHeiht;
     private bool canClick = true;
 
+    [SerializeField] private Transform destinationCrossHair;
+    [SerializeField] private Vector3 destinationCrossHairOffset;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -48,6 +51,8 @@ public class PlayerInput : MonoBehaviour
         if (Physics.Raycast(ray, out hit, rayDistance, mask))
         {
             agent.destination = hit.point;
+            destinationCrossHair.gameObject.SetActive(true);
+            destinationCrossHair.position = hit.point + destinationCrossHairOffset;
         }
     }
 }
