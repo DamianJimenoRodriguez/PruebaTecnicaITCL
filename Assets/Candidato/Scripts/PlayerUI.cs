@@ -26,9 +26,24 @@ public class PlayerUI : MonoBehaviour
         loseMessageText.text = $"Time is up!\nYou missed {coinsRemaining} coins";
     }
 
-    private void WinMessage(float timeToCompleteLevel)
+    private void WinMessage(LevelTimeData timedata)
     {
-        winMessageText.text = $"You win!\r\nYour time: {timeToCompleteLevel.ToString("0:00.00")}";
+        if (timedata != null)
+        {
+            string message = $"You win!\r\nYour time: {timedata.currentTime.ToString("0:00.00")}\nCurrent Best Time: {timedata.currentRecord.ToString("0:00.00")}";
+            if (timedata.newRecord)
+            {
+                winMessageText.text = $"{message}\nNew record!!!";
+            }
+            else
+            {
+                winMessageText.text = message;
+            }
+        }
+        else
+        {
+            winMessageText.text = "You Win!!";
+        }
     }
 
     private void UpdateTimeRemainingText(float timeRemaing)

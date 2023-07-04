@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class Level : MonoBehaviour
 {
+    [SerializeField] private int levelId;
     [SerializeField] private Timer timer;
 
     private int targetNumberOfCoins;
@@ -18,7 +20,7 @@ public class Level : MonoBehaviour
     [SerializeField] private GameObject loseScreen;
 
     public System.Action<int> OnPlayerLose;
-    public System.Action<float> OnPlayerWin;
+    public System.Action<LevelTimeData> OnPlayerWin;
 
     private void Start()
     {
@@ -39,12 +41,44 @@ public class Level : MonoBehaviour
 
     private void Victoy()
     {
-        if (OnPlayerWin != null)
-        {
-            OnPlayerWin(timer.GetElapsedTime());
-        }
+        float levelCompletionTime = timer.GetElapsedTime();
+
         timer.StopTimer();
         winScreen.SetActive(true);
+
+        if (OnPlayerWin != null)
+        {
+            LevelTimeData timeData = CheckForNewRecord(levelCompletionTime);
+            OnPlayerWin(timeData);
+        }
+    }
+
+    private LevelTimeData CheckForNewRecord(float levelCompletionTime)
+    {
+        GameData data = DataHandler.LoadFromFile();
+        for (int i = 0; i < data.levelsData.Length; i++)
+        {
+            if (data.levelsData[i].levelId == levelId)
+            {
+                LevelTimeData timeData = new LevelTimeData();
+                timeData.currentRecord = data.levelsData[i].bestLevelTime;
+                timeData.currentTime = levelCompletionTime;
+
+                if (data.levelsData[i].bestLevelTime > levelCompletionTime)
+                {
+                    data.levelsData[i].bestLevelTime = levelCompletionTime;
+                    timeData.newRecord = true;
+                    DataHandler.SaveToFile(data);
+                    return timeData;
+                }
+                else
+                {
+                    timeData.newRecord = false;
+                    return timeData;
+                }
+            }
+        }
+        return null;
     }
 
     public void AddScore(int scoreToAdd)
@@ -60,4 +94,11 @@ public class Level : MonoBehaviour
             Victoy();
         }
     }
+}
+
+public class LevelTimeData
+{
+    public float currentTime;
+    public float currentRecord;
+    public bool newRecord;
 }

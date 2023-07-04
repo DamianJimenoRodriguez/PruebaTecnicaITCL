@@ -696,6 +696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoinObject (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4221712146599832908, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7047323330004010380, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -757,6 +761,10 @@ PrefabInstance:
     - target: {fileID: 4221712146599832908, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_Name
       value: CoinObject (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221712146599832908, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7047323330004010380, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_RootOrder
@@ -1879,6 +1887,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 824066709}
   TimeRemainingText: {fileID: 228538804}
+  winMessageText: {fileID: 134406208}
+  loseMessageText: {fileID: 1875205128}
   level: {fileID: 1074794286}
   timer: {fileID: 1502729333}
 --- !u!4 &618363226
@@ -3328,7 +3338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b789f75ba60189f449e1cd72ae643a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelId: 1
   timer: {fileID: 1502729333}
+  winScreen: {fileID: 1629097091}
+  loseScreen: {fileID: 985764787}
 --- !u!1 &1094988188
 GameObject:
   m_ObjectHideFlags: 0
@@ -5644,6 +5657,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoinObject (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4221712146599832908, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7047323330004010380, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6649,6 +6666,10 @@ PrefabInstance:
     - target: {fileID: 4221712146599832908, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_Name
       value: CoinObject (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221712146599832908, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7047323330004010380, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_RootOrder
