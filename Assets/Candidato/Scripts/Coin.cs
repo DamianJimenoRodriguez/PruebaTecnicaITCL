@@ -8,6 +8,6 @@ public class Coin : PickUp
 
     public override void OnPickUp(Player player)
     {
-        player.AddScore(cointValue);
+        player.level.AddScore(cointValue);
     }
 }

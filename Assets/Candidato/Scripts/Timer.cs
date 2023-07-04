@@ -17,6 +17,16 @@ public class Timer : MonoBehaviour
         remainingTime = countDownTime;
     }
 
+    public void StopTimer()
+    {
+        isTicking = false;
+    }
+
+    public float GetElapsedTime()
+    {
+        return countDownTime - remainingTime;
+    }
+
     private void Update()
     {
         if (isTicking)
