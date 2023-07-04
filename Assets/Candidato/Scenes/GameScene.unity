@@ -698,7 +698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221712146599832908, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7047323330004010380, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_RootOrder
@@ -764,7 +764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221712146599832908, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7047323330004010380, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_RootOrder
@@ -3424,7 +3424,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28102
+  m_Name: pb_Mesh63712
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5659,7 +5659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221712146599832908, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7047323330004010380, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_RootOrder
@@ -6666,10 +6666,6 @@ PrefabInstance:
     - target: {fileID: 4221712146599832908, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_Name
       value: CoinObject (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4221712146599832908, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7047323330004010380, guid: 1737f10e13b5c7649bbd3c80ecc10995, type: 3}
       propertyPath: m_RootOrder

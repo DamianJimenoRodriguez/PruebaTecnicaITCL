@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5045544027705551246}
   - component: {fileID: 1792921600847859683}
   - component: {fileID: 8842519935184127118}
+  - component: {fileID: 7644827919499695274}
   m_Layer: 0
   m_Name: CoinObject
   m_TagString: Untagged
@@ -72,8 +73,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: df0af064481e5da47bf3c6a9c5af509f, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -158,6 +159,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &7644827919499695274
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221712146599832908}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2252a3cd8eafb4e4d8b69052f2f361d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4307131220450972341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,7 +249,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 69e570a331da80d4f9bb60a69b974919, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b0fd845b3b348c44694de5f36b35d8da, type: 2}
+      objectReference: {fileID: 2100000, guid: baa09836a0a0aec4fb714e3cd2031d16, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69e570a331da80d4f9bb60a69b974919, type: 3}
 --- !u!4 &4307131220451362869 stripped

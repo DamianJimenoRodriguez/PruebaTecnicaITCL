@@ -8,12 +8,15 @@ public abstract class PickUp : MonoBehaviour
 {
     private Collider myCollider;
     private AudioSource myAudioSource;
+    private MeshRenderer myMeshRenderer;
     [SerializeField] private int timeToDisable;
+    private string dissolvePropertyname = "_Dissolve";
 
     private void Awake()
     {
         myAudioSource = GetComponent<AudioSource>();
         myCollider = GetComponent<Collider>();
+        myMeshRenderer = GetComponentInChildren<MeshRenderer>();
     }
 
     public abstract void OnPickUp(Player player);
@@ -35,7 +38,14 @@ public abstract class PickUp : MonoBehaviour
 
     public IEnumerator DisablePickUp()
     {
-        yield return new WaitForSeconds(timeToDisable);
+        float timeElapsed = 0;
+        while (timeElapsed < timeToDisable)
+        {
+            yield return null;
+            timeElapsed += Time.deltaTime;
+            float lerpValue = Mathf.Lerp(0, 1, timeElapsed / timeToDisable);
+            myMeshRenderer.material.SetFloat(dissolvePropertyname, lerpValue);
+        }
         gameObject.SetActive(false);
     }
 }
