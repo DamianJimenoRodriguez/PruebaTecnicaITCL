@@ -45,7 +45,7 @@ public class Level : MonoBehaviour
 
         timer.StopTimer();
         winScreen.SetActive(true);
-
+        Time.timeScale = 0.0f;
         if (OnPlayerWin != null)
         {
             LevelTimeData timeData = CheckForNewRecord(levelCompletionTime);

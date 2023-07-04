@@ -8,7 +8,7 @@ public class PlayerInput : MonoBehaviour
 {
     private NavMeshAgent agent;
     public LayerMask mask;
-    public LayerMask UIMask;
+
     public float rayDistance = 100f;
     public float minHeiht;
     private bool canClick = true;
@@ -31,7 +31,7 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1") && !IsPointerOverUIObject())
+        if (Input.GetButton("Fire1") && !IsPointerOverUIObject())
         {
             if (canClick)
             {
@@ -47,11 +47,6 @@ public class PlayerInput : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, rayDistance, mask))
         {
-            Debug.Log(hit.collider.gameObject.name);
-            if (hit.collider.gameObject.layer == UIMask)
-            {
-                return;
-            }
             agent.destination = hit.point;
         }
     }

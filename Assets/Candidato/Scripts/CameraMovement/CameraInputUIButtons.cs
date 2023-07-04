@@ -38,17 +38,17 @@ public class CameraInputUIButtons : MonoBehaviour, CameraInput
         Vertical = 0;
     }
 
-    public void ZoomUp()
+    public void LessZoom()
     {
         Zoom = 1;
     }
 
-    public void ZoomDown()
+    public void MoreZoom()
     {
         Zoom = -1;
     }
 
-    public void NoZoom()
+    public void StopZooming()
     {
         Zoom = 0;
     }

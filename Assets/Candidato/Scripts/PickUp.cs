@@ -9,6 +9,7 @@ public abstract class PickUp : MonoBehaviour
     private Collider myCollider;
     private AudioSource myAudioSource;
     private MeshRenderer myMeshRenderer;
+    private ParticleSystem myParticleSystem;
     [SerializeField] private int timeToDisable;
     private string dissolvePropertyname = "_Dissolve";
 
@@ -17,6 +18,7 @@ public abstract class PickUp : MonoBehaviour
         myAudioSource = GetComponent<AudioSource>();
         myCollider = GetComponent<Collider>();
         myMeshRenderer = GetComponentInChildren<MeshRenderer>();
+        myParticleSystem = GetComponentInChildren<ParticleSystem>();
     }
 
     public abstract void OnPickUp(Player player);
@@ -31,6 +33,7 @@ public abstract class PickUp : MonoBehaviour
                 myAudioSource.Play();
             }
             myCollider.enabled = false;
+            myParticleSystem.Play();
             OnPickUp(player);
             StartCoroutine(DisablePickUp());
         }
