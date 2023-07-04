@@ -2,33 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraInputKeyBoard : MonoBehaviour, CameraInput
+public class CameraInputKeyBoard : MonoBehaviour, ICameraInput
 {
     public float Horizontal { get; set; }
     public float Vertical { get; set; }
     public int Zoom { get; set; }
 
-    [SerializeField] private KeyCode zoomUpKey;
-    [SerializeField] private KeyCode zoomDownKey;
+    private KeyCode moreZoomUpKey = KeyCode.E;
+    private KeyCode lessZoomKey = KeyCode.Q;
 
     private void Update()
     {
         Horizontal = Input.GetAxisRaw("Horizontal");
         Vertical = Input.GetAxisRaw("Vertical");
-        if (Input.GetKey(zoomUpKey))
-        {
-            Zoom = 1;
-            Debug.Log("Positivezoom");
-        }
-        else if (Input.GetKey(zoomDownKey))
+        if (Input.GetKey(moreZoomUpKey))
         {
             Zoom = -1;
-            Debug.Log("negativezoom");
+        }
+        else if (Input.GetKey(lessZoomKey))
+        {
+            Zoom = 1;
         }
         else
         {
             Zoom = 0;
-            Debug.Log("nozoom");
         }
     }
 }

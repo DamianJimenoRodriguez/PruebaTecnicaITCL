@@ -20,11 +20,13 @@ public class Orbiting : MonoBehaviour
 
     [SerializeField] private float RotXMax = 14;
     [SerializeField] private float RotXMin = -14;
-    private CameraInput input;
+    private ICameraInput input;
+    private CameraControlSetUp cameraControlSetUp;
 
     private void Awake()
     {
-        input = GetComponent<CameraInput>();
+        cameraControlSetUp = GetComponent<CameraControlSetUp>();
+        input = cameraControlSetUp.GetControlType();
         RotX = transform.rotation.eulerAngles.x;
         RotY = transform.rotation.eulerAngles.y;
     }

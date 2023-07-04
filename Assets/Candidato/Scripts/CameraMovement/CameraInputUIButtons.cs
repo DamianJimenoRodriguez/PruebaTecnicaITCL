@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraInputUIButtons : MonoBehaviour, CameraInput
+public class CameraInputUIButtons : MonoBehaviour, ICameraInput
 {
     public float Horizontal { get; set; }
     public float Vertical { get; set; }
