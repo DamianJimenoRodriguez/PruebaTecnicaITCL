@@ -4,101 +4,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 public class Level : MonoBehaviour
 {
     [SerializeField] private int levelId;
     [SerializeField] private Timer timer;
-
+    [SerializeField] private GameEnd gameEnd;
     private int targetNumberOfCoins;
-    private int currentNumberOfCoins;
+    private int currentNumberOfCoinsOnPlayer = 0;
+    private int numberOfCoinsStored = 0;
 
-    private int CurrentScore = 0;
     public System.Action<int> OnPlayerScore;
-
-    [SerializeField] private GameObject winScreen;
-    [SerializeField] private GameObject loseScreen;
-
-    public System.Action<int> OnPlayerLose;
-    public System.Action<LevelTimeData> OnPlayerWin;
 
     private void Start()
     {
         targetNumberOfCoins = FindObjectsOfType<Coin>().Length;
-        timer.OnTimerEnd += GameOver;
+        timer.OnTimerEnd += TimeUp;
     }
 
-    private void GameOver()
+    private void TimeUp()
     {
-        if (OnPlayerLose != null)
-        {
-            int remainingCoins = targetNumberOfCoins - currentNumberOfCoins;
-            OnPlayerLose(remainingCoins);
-        }
         Time.timeScale = 0.0f;
-        loseScreen.SetActive(true);
+        int remainingCoins = targetNumberOfCoins - numberOfCoinsStored;
+        gameEnd.Defeat(remainingCoins);
     }
 
-    private void Victoy()
+    private void AllCoinsStored()
     {
+        Time.timeScale = 0.0f;
         float levelCompletionTime = timer.GetElapsedTime();
-
         timer.StopTimer();
-        winScreen.SetActive(true);
-        Time.timeScale = 0.0f;
-        if (OnPlayerWin != null)
-        {
-            LevelTimeData timeData = CheckForNewRecord(levelCompletionTime);
-            OnPlayerWin(timeData);
-        }
+        gameEnd.Victoy(levelCompletionTime, levelId);
     }
 
-    private LevelTimeData CheckForNewRecord(float levelCompletionTime)
+    public void GetCoin()
     {
-        GameData data = DataHandler.LoadFromFile();
-        for (int i = 0; i < data.levelsData.Length; i++)
-        {
-            if (data.levelsData[i].levelId == levelId)
-            {
-                LevelTimeData timeData = new LevelTimeData();
-                timeData.currentRecord = data.levelsData[i].bestLevelTime;
-                timeData.currentTime = levelCompletionTime;
-
-                if (data.levelsData[i].bestLevelTime > levelCompletionTime)
-                {
-                    data.levelsData[i].bestLevelTime = levelCompletionTime;
-                    timeData.newRecord = true;
-                    DataHandler.SaveToFile(data);
-                    return timeData;
-                }
-                else
-                {
-                    timeData.newRecord = false;
-                    return timeData;
-                }
-            }
-        }
-        return null;
+        currentNumberOfCoinsOnPlayer++;
     }
 
-    public void AddScore(int scoreToAdd)
+    public void StoreCoins()
     {
-        CurrentScore += scoreToAdd;
+        numberOfCoinsStored += currentNumberOfCoinsOnPlayer;
+        currentNumberOfCoinsOnPlayer = 0;
         if (OnPlayerScore != null)
         {
-            OnPlayerScore(CurrentScore);
+            OnPlayerScore(numberOfCoinsStored);
         }
-        currentNumberOfCoins++;
-        if (currentNumberOfCoins == targetNumberOfCoins)
+        if (numberOfCoinsStored >= targetNumberOfCoins)
         {
-            Victoy();
+            AllCoinsStored();
         }
     }
-}
-
-public class LevelTimeData
-{
-    public float currentTime;
-    public float currentRecord;
-    public bool newRecord;
 }
