@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// script used to load levels and quit the game
+/// mainly used by UI buttons
+/// </summary>
 public class LevelLoader : MonoBehaviour
 {
     public void LoadLevelByName(string sceneName)

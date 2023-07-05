@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// PC control for the camera
+/// uses keyboard keys
+/// </summary>
 public class CameraInputKeyBoard : MonoBehaviour, ICameraInput
 {
     public float Horizontal { get; set; }

@@ -2155,6 +2155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mobileObjects:
   - {fileID: 1609469681}
+  - {fileID: 2034606169}
   pcObjects: []
 --- !u!1 &662618217
 GameObject:

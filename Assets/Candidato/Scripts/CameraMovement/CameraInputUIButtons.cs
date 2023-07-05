@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Mobile camera controls
+/// uses UI and the Unity Event system
+/// </summary>
 public class CameraInputUIButtons : MonoBehaviour, ICameraInput
 {
     public float Horizontal { get; set; }

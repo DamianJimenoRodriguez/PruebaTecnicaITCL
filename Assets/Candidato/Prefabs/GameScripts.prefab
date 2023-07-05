@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDownTime: 30
-  isTicking: 1
 --- !u!1 &5348906282151978285
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,12 +227,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbitingObject: {fileID: 0}
   Pivot: {fileID: 0}
-  PivotDistance: 25
-  MaxPivotDistance: 55
+  PivotDistance: 60
+  MaxPivotDistance: 75
   MinPivotDistance: 10
-  zoomSpeed: 10
+  zoomSpeed: 25
   RotSpeed: 65
-  RotXMax: 45
+  RotXMax: 70
   RotXMin: 5
 --- !u!1 &5348906283152279571
 GameObject:
@@ -325,7 +324,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreen: {fileID: 0}
   loseScreen: {fileID: 0}
-  timer: {fileID: 5348906282147150725}
 --- !u!1 &5348906283696734670
 GameObject:
   m_ObjectHideFlags: 0

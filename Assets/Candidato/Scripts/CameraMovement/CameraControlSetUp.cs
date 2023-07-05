@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script that sets the control type based on whether the player
+/// is using a Pc or a mobile device
+/// </summary>
 public class CameraControlSetUp : MonoBehaviour
 {
     [SerializeField] private CameraInputUIButtons mobileControls;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 
 public class OrbitingCamera : MonoBehaviour
@@ -47,10 +46,9 @@ public class OrbitingCamera : MonoBehaviour
     public void Orbit(float Horz, float Vert)
     {
         RotX += Vert * Time.deltaTime * RotSpeed;
-        RotX = Mathf.Clamp(RotX, RotXMin, RotXMax);
-
         RotY -= Horz * Time.deltaTime * RotSpeed;
 
+        RotX = Mathf.Clamp(RotX, RotXMin, RotXMax);
         Quaternion YRot = Quaternion.Euler(0f, RotY, 0f);
         DestRot = YRot * Quaternion.Euler(RotX, 0f, 0f);
 

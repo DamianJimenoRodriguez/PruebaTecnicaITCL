@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Script to activate and deactivate objects
-/// based on whether we are playing on a mobil device or on a PC
+/// based on whether we are playing on a mobile device or on a PC
 /// </summary>
 public class PlaformObjects : MonoBehaviour
 {
