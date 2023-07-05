@@ -11,22 +11,23 @@ public class Level : MonoBehaviour
     [SerializeField] private int levelId;
     [SerializeField] private Timer timer;
     [SerializeField] private GameEnd gameEnd;
-    private int targetNumberOfCoins;
+    private int coinsInLevel;
     private int currentNumberOfCoinsOnPlayer = 0;
-    private int numberOfCoinsStored = 0;
+    private int coinsStored = 0;
 
-    public System.Action<int> OnPlayerScore;
+    public System.Action<int> OnPlayerPickUpCoin;
+    public System.Action<int> OnPlayerStoreCoins;
 
     private void Start()
     {
-        targetNumberOfCoins = FindObjectsOfType<Coin>().Length;
+        coinsInLevel = FindObjectsOfType<Coin>().Length;
         timer.OnTimerEnd += TimeUp;
     }
 
     private void TimeUp()
     {
         Time.timeScale = 0.0f;
-        int remainingCoins = targetNumberOfCoins - numberOfCoinsStored;
+        int remainingCoins = coinsInLevel - coinsStored;
         gameEnd.Defeat(remainingCoins);
     }
 
@@ -41,19 +42,28 @@ public class Level : MonoBehaviour
     public void GetCoin()
     {
         currentNumberOfCoinsOnPlayer++;
+        if (OnPlayerPickUpCoin != null)
+        {
+            OnPlayerPickUpCoin(currentNumberOfCoinsOnPlayer);
+        }
     }
 
     public void StoreCoins()
     {
-        numberOfCoinsStored += currentNumberOfCoinsOnPlayer;
-        currentNumberOfCoinsOnPlayer = 0;
-        if (OnPlayerScore != null)
+        if (currentNumberOfCoinsOnPlayer > 0)
         {
-            OnPlayerScore(numberOfCoinsStored);
-        }
-        if (numberOfCoinsStored >= targetNumberOfCoins)
-        {
-            AllCoinsStored();
+            coinsStored += currentNumberOfCoinsOnPlayer;
+            currentNumberOfCoinsOnPlayer = 0;
+
+            if (OnPlayerStoreCoins != null)
+            {
+                OnPlayerStoreCoins(coinsStored);
+            }
+
+            if (coinsStored >= coinsInLevel)
+            {
+                AllCoinsStored();
+            }
         }
     }
 }

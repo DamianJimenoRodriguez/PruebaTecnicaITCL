@@ -14,8 +14,13 @@ public class DataHandler : MonoBehaviour
     {
         if (!File.Exists(Application.persistentDataPath + "/" + saveName + ".json"))
         {
-            SaveToFile(DefaultGameData);
+            ResetDataToDefault();
         }
+    }
+
+    public void ResetDataToDefault()
+    {
+        SaveToFile(DefaultGameData);
     }
 
     public static void SaveToFile(GameData gameData)

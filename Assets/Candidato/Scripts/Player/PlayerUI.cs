@@ -6,7 +6,8 @@ using System;
 
 public class PlayerUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI coinsStoredText;
+    [SerializeField] private TextMeshProUGUI coinsOnPlayerText;
     [SerializeField] private TextMeshProUGUI TimeRemainingText;
     [SerializeField] private TextMeshProUGUI winMessageText;
     [SerializeField] private TextMeshProUGUI loseMessageText;
@@ -16,7 +17,8 @@ public class PlayerUI : MonoBehaviour
 
     private void Awake()
     {
-        level.OnPlayerScore += UpdateScoreText;
+        level.OnPlayerPickUpCoin += UpdateCoinsOnPlayerText;
+        level.OnPlayerStoreCoins += UpdateCoinsStoredText;
         timer.OnTick += UpdateTimeRemainingText;
         gameEnd.OnPlayerWin += WinMessage;
         gameEnd.OnPlayerLose += LoseMessage;
@@ -52,8 +54,14 @@ public class PlayerUI : MonoBehaviour
         TimeRemainingText.text = timeRemaing.ToString("0:00.00");
     }
 
-    private void UpdateScoreText(int currentScore)
+    private void UpdateCoinsOnPlayerText(int currentScore)
     {
-        scoreText.text = currentScore.ToString();
+        coinsOnPlayerText.text = currentScore.ToString();
+    }
+
+    private void UpdateCoinsStoredText(int coinsStored)
+    {
+        coinsOnPlayerText.text = "0";
+        coinsStoredText.text = coinsStored.ToString();
     }
 }
