@@ -2200,6 +2200,7 @@ GameObject:
   - component: {fileID: 563331785}
   - component: {fileID: 563331784}
   - component: {fileID: 563331788}
+  - component: {fileID: 563331790}
   - component: {fileID: 563331789}
   m_Layer: 7
   m_Name: Player
@@ -2236,11 +2237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e400d5f72df4684284efee9b43a26d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mask:
-    serializedVersion: 2
-    m_Bits: 55
-  rayDistance: 100
-  minHeiht: 0
   destinationCrossHair: {fileID: 1940243590}
   destinationCrossHairOffset: {x: 0, y: 0.05, z: 0}
 --- !u!136 &563331785
@@ -2291,13 +2287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e400d5f72df4684284efee9b43a26d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mask:
-    serializedVersion: 2
-    m_Bits: 0
-  rayDistance: 100
-  minHeiht: 0
-  destinationCrossHair: {fileID: 0}
-  destinationCrossHairOffset: {x: 0, y: 0, z: 0}
+  destinationCrossHair: {fileID: 1940243590}
+  destinationCrossHairOffset: {x: 0, y: 0.05, z: 0}
 --- !u!114 &563331788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2327,6 +2318,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &563331790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563331782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7498bb0d7204dc44e95e024c4a6fcbd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 55
+  rayDistance: 100
+  cam: {fileID: 0}
 --- !u!1 &568537876
 GameObject:
   m_ObjectHideFlags: 0
