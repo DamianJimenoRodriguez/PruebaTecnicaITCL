@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Super class used for objects for the player to interact
+/// </summary>
 public abstract class PlayerInteractable : MonoBehaviour
 {
     public abstract void OnPlayerInteract(Player player);

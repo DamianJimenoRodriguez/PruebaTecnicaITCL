@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script used when the player wins the game (gets all the coins before time runs out)
+/// or when the player loses (the opposite happens)
+/// it shows the player a win screen or a lose screen acordingly
+/// also, for the win screen check whether the player got a new record or not
+/// </summary>
 public class GameEnd : MonoBehaviour
 {
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject loseScreen;
-    [SerializeField] private Timer timer;
 
     public System.Action<int> OnPlayerLose;
     public System.Action<LevelCompletionTimeData> OnPlayerWin;
@@ -17,14 +22,14 @@ public class GameEnd : MonoBehaviour
         {
             OnPlayerLose(remainingCoins);
         }
-        Time.timeScale = 0.0f;
+
         loseScreen.SetActive(true);
     }
 
-    public void Victoy(float levelCompletionTime, int levelId)
+    public void Victory(float levelCompletionTime, int levelId)
     {
         winScreen.SetActive(true);
-        Time.timeScale = 0.0f;
+
         if (OnPlayerWin != null)
         {
             LevelCompletionTimeData timeData = CheckForNewRecord(levelCompletionTime, levelId);

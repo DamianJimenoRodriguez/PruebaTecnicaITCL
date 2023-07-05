@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.AI;
 
+/// <summary>
+/// Script that moves the player object in the scene.
+/// It uses a NavMeshAgent to do so.
+/// Receibes new positions from a script of type PlayerInput
+/// which currently uses raycast
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
@@ -12,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform destinationCrossHair;
 
-    [SerializeField] private Vector3 destinationCrossHairOffset;
+    [SerializeField] private float destinationCrossHairOffset;
 
     private void Awake()
     {
@@ -21,10 +27,11 @@ public class PlayerMovement : MonoBehaviour
         playerInput.OnPlayerInteraction += MovePlayer;
     }
 
-    public void MovePlayer(Vector3 newPos)
+    public void MovePlayer(Vector3 newPos, Vector3 normal)
     {
         destinationCrossHair.gameObject.SetActive(true);
         agent.destination = newPos;
-        destinationCrossHair.position = newPos + destinationCrossHairOffset;
+        destinationCrossHair.rotation = Quaternion.LookRotation(normal);
+        destinationCrossHair.position = newPos + normal * destinationCrossHairOffset;
     }
 }

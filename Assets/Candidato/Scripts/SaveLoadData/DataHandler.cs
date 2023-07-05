@@ -5,6 +5,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 
+/// <summary>
+/// Class used to save the best completion time in each level
+/// it uses JsonUtility.
+/// We store the data using Application.persistentDataPath
+/// to make sure it works both in pc and mobile devices.
+/// Also, it check if the data file is not created,
+/// if so it creates it with default data
+/// </summary>
 public class DataHandler : MonoBehaviour
 {
     public GameData DefaultGameData;
@@ -27,7 +35,6 @@ public class DataHandler : MonoBehaviour
     {
         string json = JsonUtility.ToJson(gameData);
         File.WriteAllText(Application.persistentDataPath + "/" + saveName + ".json", json);
-        Debug.Log(Application.persistentDataPath + "/" + saveName + ".json");
     }
 
     public static GameData LoadFromFile()

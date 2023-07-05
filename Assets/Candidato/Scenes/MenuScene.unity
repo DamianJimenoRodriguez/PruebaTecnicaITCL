@@ -2188,13 +2188,11 @@ MonoBehaviour:
   DefaultGameData:
     levelsData:
     - levelId: 1
-      bestLevelTime: 400
+      bestLevelTime: 60
     - levelId: 2
-      bestLevelTime: 400
+      bestLevelTime: 120
     - levelId: 3
-      bestLevelTime: 400
-    - levelId: 4
-      bestLevelTime: 400
+      bestLevelTime: 180
 --- !u!4 &662618219
 Transform:
   m_ObjectHideFlags: 0

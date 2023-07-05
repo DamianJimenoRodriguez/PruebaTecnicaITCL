@@ -36,7 +36,7 @@ public class Level : MonoBehaviour
         Time.timeScale = 0.0f;
         float levelCompletionTime = timer.GetElapsedTime();
         timer.StopTimer();
-        gameEnd.Victoy(levelCompletionTime, levelId);
+        gameEnd.Victory(levelCompletionTime, levelId);
     }
 
     public void GetCoin()

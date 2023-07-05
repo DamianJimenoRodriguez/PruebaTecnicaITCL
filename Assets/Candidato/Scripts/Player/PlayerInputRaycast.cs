@@ -4,6 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Child class of PlayerInput.
+/// Uses Raycast to calculate the player next position
+/// The method used to calculate the ray is Camera.ScreenPointToRay
+/// Since we are using GetButton("Fire") for the input and
+/// mouse.positon for the ray, this script works on both
+/// Pc and mobile devices
+/// </summary>
 public class PlayerInputRaycast : PlayerInput
 {
     [SerializeField] private LayerMask mask;
@@ -45,7 +53,7 @@ public class PlayerInputRaycast : PlayerInput
         {
             if (hit.collider != null && OnPlayerInteraction != null)
             {
-                OnPlayerInteraction(hit.point);
+                OnPlayerInteraction(hit.point, hit.normal);
             }
         }
     }

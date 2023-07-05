@@ -4,6 +4,11 @@ using UnityEngine;
 using TMPro;
 using System;
 
+/// <summary>
+/// class used to updtate the UI
+/// For that, It is subscribed to many diferent actions
+/// such as the one launched when the player gets a coin
+/// </summary>
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI coinsStoredText;

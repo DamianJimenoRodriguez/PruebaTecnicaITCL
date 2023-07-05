@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Simple timer script that launches two actions, one when the countdown ends.
+/// and another in the update each frame.
+/// The first one is use to indicate the end of the game, the other to show the
+/// countdown in the UI
+/// </summary>
 public class Timer : MonoBehaviour
 {
     [SerializeField] private float countDownTime = 60f;
-    [SerializeField] private bool isTicking;
+    private bool isTicking = true;
 
     private float remainingTime;
 

@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script to activate and deactivate objects
+/// based on whether we are playing on a mobil device or on a PC
+/// </summary>
 public class PlaformObjects : MonoBehaviour
 {
     [SerializeField] private GameObject[] mobileObjects;
