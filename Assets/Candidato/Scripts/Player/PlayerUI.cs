@@ -30,7 +30,7 @@ public class PlayerUI : MonoBehaviour
     {
         if (timedata != null)
         {
-            string message = $"You win!\r\nYour time: {timedata.currentTime.ToString("0:00.00")}\nCurrent Best Time: {timedata.currentRecord.ToString("0:00.00")}";
+            string message = $"Level Complete!\r\nYour time: {timedata.currentTime.ToString("0:00.00")}\nCurrent Best Time: {timedata.currentRecord.ToString("0:00.00")}";
             if (timedata.newRecord)
             {
                 winMessageText.text = $"{message}\nNew record!!!";

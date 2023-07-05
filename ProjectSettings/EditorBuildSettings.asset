@@ -13,8 +13,8 @@ EditorBuildSettings:
     guid: 2bb663f29472af14887a803cbb540d52
   - enabled: 1
     path: Assets/Candidato/Scenes/Level 2.unity
-    guid: 77152c0c77ecbb044be19bfb09e8e095
+    guid: 7cbcdcb2f38a6ac40b5fbb7328837b8b
   - enabled: 1
     path: Assets/Candidato/Scenes/Level 3.unity
-    guid: 2f10d85a01999f54c84f428d7060613b
+    guid: 214d8b1c7dbcfdf419a651c1a3c540aa
   m_configObjects: {}

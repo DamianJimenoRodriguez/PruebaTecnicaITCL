@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class Orbiting : MonoBehaviour
+public class OrbitingCamera : MonoBehaviour
 {
+    [SerializeField] private Transform orbitingObject;
     [SerializeField] private Transform Pivot;
 
     private Quaternion DestRot = Quaternion.identity;
@@ -27,8 +28,8 @@ public class Orbiting : MonoBehaviour
     {
         cameraControlSetUp = GetComponent<CameraControlSetUp>();
         input = cameraControlSetUp.GetControlType();
-        RotX = transform.rotation.eulerAngles.x;
-        RotY = transform.rotation.eulerAngles.y;
+        RotX = orbitingObject.rotation.eulerAngles.x;
+        RotY = orbitingObject.rotation.eulerAngles.y;
     }
 
     private void Update()
@@ -53,8 +54,8 @@ public class Orbiting : MonoBehaviour
         Quaternion YRot = Quaternion.Euler(0f, RotY, 0f);
         DestRot = YRot * Quaternion.Euler(RotX, 0f, 0f);
 
-        transform.rotation = DestRot;
+        orbitingObject.rotation = DestRot;
 
-        transform.position = Pivot.position + transform.rotation * Vector3.forward * -PivotDistance;
+        orbitingObject.position = Pivot.position + orbitingObject.rotation * Vector3.forward * -PivotDistance;
     }
 }
