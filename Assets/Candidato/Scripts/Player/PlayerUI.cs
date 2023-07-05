@@ -11,14 +11,15 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI winMessageText;
     [SerializeField] private TextMeshProUGUI loseMessageText;
     [SerializeField] private Level level;
+    [SerializeField] private GameEnd gameEnd;
     [SerializeField] private Timer timer;
 
     private void Awake()
     {
         level.OnPlayerScore += UpdateScoreText;
         timer.OnTick += UpdateTimeRemainingText;
-        level.OnPlayerWin += WinMessage;
-        level.OnPlayerLose += LoseMessage;
+        gameEnd.OnPlayerWin += WinMessage;
+        gameEnd.OnPlayerLose += LoseMessage;
     }
 
     private void LoseMessage(int coinsRemaining)
@@ -26,7 +27,7 @@ public class PlayerUI : MonoBehaviour
         loseMessageText.text = $"Time is up!\nYou missed {coinsRemaining} coins";
     }
 
-    private void WinMessage(LevelTimeData timedata)
+    private void WinMessage(LevelCompletionTimeData timedata)
     {
         if (timedata != null)
         {
